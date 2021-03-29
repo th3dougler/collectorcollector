@@ -1,0 +1,38 @@
+{% extends "../base.html" %}
+
+{% block content%}
+<main class="container">
+    <h1>Index</h1>
+    <div class="row">
+        {% for collector in object_list %}
+        <a href="{% url 'collector-detail' collector.id %}">
+            <div class="card col s12">
+                <div class="card-title">
+                    {{collector.name}}
+                </div>
+                <div class="card-content">
+                    <blockquote>
+                        Category: {{collector.category}}
+                        <br/>
+                        Description: {{collector.description}}
+                        <br/>
+                        Capacity: {{collector.capacity}}
+                        <br/>
+                    </blockquote>
+                </div>
+            </div>
+        </a>    
+        {% empty %}
+        <div class="card col s12">
+            <div class="card-title">
+                Collection of Collectors Lacks Content
+            </div>
+            <div class="card-content">
+                Create collections of collectors to continue
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

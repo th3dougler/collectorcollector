@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Collector Collector - The Ultimate Tool for Collecting Various Means of Collection into one Collection</title>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="{% url 'collector-home' %}" class="brand-logo center"><i class="material-icons large" >dashboard</i>Collector Collector</a>
+            <ul class="right hide-on-small-and-down">
+              <li class="{% if active ==  'about' %}active{%endif%}"><a href="{% url 'collector-about' %}">About</a></li>
+              <li class="{% if active ==  'index' %}active{%endif%}"><a href="{% url 'collector-list' %}">Index</a></li>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    {% block content%}
+    {% endblock %}
+</body>
+</html>
