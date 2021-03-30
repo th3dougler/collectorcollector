@@ -5,23 +5,33 @@
     <h1>Index</h1>
     <div class="row">
         {% for collector in object_list %}
-        <a href="{% url 'collector-detail' collector.id %}">
+        
             <div class="card col s12">
+                <a href="{% url 'collector-detail' collector.id %}"></a>
                 <div class="card-title">
                     {{collector.name}}
                 </div>
                 <div class="card-content">
+                    <strong>Category: </strong>
                     <blockquote>
-                        Category: {{collector.category}}
-                        <br/>
-                        Description: {{collector.description}}
-                        <br/>
-                        Capacity: {{collector.capacity}}
-                        <br/>
+                        {{collector.category}}
+                    </blockquote>
+                    <strong>Description: </strong>
+                    <blockquote>
+                        {{collector.description}}
+                    </blockquote>
+                    <strong>Capacity: </strong>
+                    <blockquote>
+                        {{collector.capacity}}
                     </blockquote>
                 </div>
+                </a>
+                <div class="card-action">
+                    <a href="{% url 'collector-update' collector.id %}" class="btn">Update</a>
+                    <a href="{% url 'collector-delete' collector.id %}" class="btn red">Delete</a>
+                </div>
             </div>
-        </a>    
+            
         {% empty %}
         <div class="card col s12">
             <div class="card-title">

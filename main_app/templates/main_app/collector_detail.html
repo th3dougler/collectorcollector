@@ -9,14 +9,23 @@
                 {{object.name}}
             </div>
             <div class="card-content">
+                <strong>Category: </strong>
                 <blockquote>
-                    Category: {{object.category}}
-                    <br/>
-                    Description: {{object.description}}
-                    <br/>
-                    Capacity: {{object.capacity}}
-                    <br/>
+                    {{object.category}}
                 </blockquote>
+                <strong>Description: </strong>
+                <blockquote>
+                    {{object.description}}
+                </blockquote>
+                <strong>Capacity: </strong>
+                <blockquote>
+                    {{object.capacity}}
+                </blockquote>
+            </div>
+            </a>
+            <div class="card-action">
+                <a href="{% url 'collector-update' object.id %}" class="btn">Update</a>
+                <a href="{% url 'collector-delete' object.id %}" class="btn red">Delete</a>
             </div>
         </div>
     </div>

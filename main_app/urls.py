@@ -5,7 +5,10 @@ urlpatterns = [
     path('', views.CollectorHome.as_view() , name="collector-home"),
     path('about/', views.CollectorAbout.as_view(), name="collector-about"),
     path('index/', views.CollectorList.as_view(), name="collector-list"),
-    path('<int:pk>/', views.CollectorDetail.as_view(), name="collector-detail"),
     path('create/', views.CollectorCreate.as_view(), name="collector-create"),
+    path('<int:pk>/', views.CollectorDetail.as_view(), name="collector-detail"),
+    path('<int:pk>/update/', views.CollectorUpdate.as_view(), name="collector-update"),
+    path('<int:pk>/delete/', views.CollectorDelete.as_view(), name="collector-delete"),
+    
     
 ]

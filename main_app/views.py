@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView, CreateView
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from .models import Collector
 
@@ -31,4 +31,11 @@ class CollectorCreate(CreateView):
     model = Collector
     fields = '__all__'
 
+
+class CollectorUpdate(UpdateView):
+    model = Collector
+    fields = '__all__'
+
+class CollectorDelete(DeleteView):
+    model = Collector
 
