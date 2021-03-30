@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from .models import Collector
@@ -38,4 +39,5 @@ class CollectorUpdate(UpdateView):
 
 class CollectorDelete(DeleteView):
     model = Collector
+    success_url = reverse_lazy('collector-list')
 
