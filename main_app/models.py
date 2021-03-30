@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Collector(models.Model):
     name = models.CharField(max_length=100)
@@ -10,5 +11,5 @@ class Collector(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('collector-detail', kwargs={'collector_id': self.id} )
+        return reverse('collector-detail', kwargs={'pk': self.id} )
     

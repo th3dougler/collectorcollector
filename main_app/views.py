@@ -1,8 +1,18 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView, CreateView
 
 from .models import Collector
 
+class CollectorHome(TemplateView):
+    template_name = "main_app/collector_home.html"
+
+class CollectorAbout(TemplateView):
+    template_name = "main_app/collector_about.html"
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['active'] = 'about' 
+        return context
+    
 class CollectorList(ListView):
     model = Collector
     def get_context_data(self, **kwargs):
@@ -16,10 +26,9 @@ class CollectorDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['active'] = 'detail'
         return context
-
-class CollectorHome(TemplateView):
-    template_name = "main_app/collector_home.html"
-
-class CollectorAbout(TemplateView):
-    template_name = "main_app/collector_about.html"
     
+class CollectorCreate(CreateView):
+    model = Collector
+    fields = '__all__'
+
+
