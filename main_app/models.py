@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from django.contrib.auth.models import User
+
 COLOURS = (
     ('0', 'White'),
     ('1', 'Black'),
@@ -26,6 +28,7 @@ class Collector(models.Model):
     description = models.TextField(max_length=250)
     capacity = models.IntegerField()
     common_feature = models.ManyToManyField(Common_Feature)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
     
