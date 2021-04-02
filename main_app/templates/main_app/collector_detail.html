@@ -4,23 +4,23 @@
 <main class="container">
     <h1>Index</h1>
     <div class="row">
-        <div class="card col s12">
+        <div class="card col s6">
             <div class="card-title">
                 {{object.name}}
             </div>
             <div class="card-content">
                 <strong>Category: </strong>
-                <blockquote>
+                <p>
                     {{object.category}}
-                </blockquote>
+                </p>
                 <strong>Description: </strong>
-                <blockquote>
+                <p>
                     {{object.description}}
-                </blockquote>
+                </p>
                 <strong>Capacity: </strong>
-                <blockquote>
+                <p>
                     {{object.capacity}}
-                </blockquote>
+                </p>
             </div>
             </a>
             <div class="card-action">
@@ -28,7 +28,27 @@
                 <a href="{% url 'collector-delete' object.id %}" class="btn red">Delete</a>
             </div>
         </div>
+        <div class='card col s6'>
+            <form method="post" action="{% url 'add_whatgoesin' object.id %}">
+                {% csrf_token %}
+                {{ whatgoesin_form.as_p }}
+                <input type="submit" class="btn" value="Add A Thing That Goes In NOW!">
+              </form>
+            <table class="striped">
+                <thead>
+                  <tr><th>Name</th><th>Colour</th></tr>
+                </thead>
+                <tbody>
+                  {% for each in object.whatgoesin_set.all %}
+                    <tr>
+                      <td>{{each.name}}</td>
+                      <td>{{each.get_colour_display}}</td>
+                      <td style="background-color: {{each.get_colour_display}};"></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
     </div>
 </main>
-
 {% endblock %}

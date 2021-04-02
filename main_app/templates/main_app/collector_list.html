@@ -7,23 +7,23 @@
         {% for collector in object_list %}
         
             <div class="card col s12">
-                <a href="{% url 'collector-detail' collector.id %}"></a>
+                <a href="{% url 'collector-detail' collector.id %}">
                 <div class="card-title">
                     {{collector.name}}
                 </div>
                 <div class="card-content">
                     <strong>Category: </strong>
-                    <blockquote>
+                    <p>
                         {{collector.category}}
-                    </blockquote>
+                    </p>
                     <strong>Description: </strong>
-                    <blockquote>
+                    <p>
                         {{collector.description}}
-                    </blockquote>
+                    </p>
                     <strong>Capacity: </strong>
-                    <blockquote>
+                    <p>
                         {{collector.capacity}}
-                    </blockquote>
+                    </p>
                 </div>
                 </a>
                 <div class="card-action">
