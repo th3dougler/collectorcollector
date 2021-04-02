@@ -1,0 +1,33 @@
+{% extends "../base.html" %}
+
+{% block content%}
+<main class="container">
+    <h1>Index</h1>
+    <div class="row">
+        {% for collector in object_list %}
+        
+            <div class="card col s12">
+                <a href="{% url 'common-feature-detail' collector.id %}">
+                <div class="card-title">
+                    {{collector.name}}
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'common-feature-update' collector.id %}" class="btn">Update</a>
+                    <a href="{% url 'common-feature-delete' collector.id %}" class="btn red">Delete</a>
+                </div>
+            </div>
+            
+        {% empty %}
+        <div class="card col s12">
+            <div class="card-title">
+                Collection of Collectors Lacks Content
+            </div>
+            <div class="card-content">
+                Create collections of collectors to continue
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

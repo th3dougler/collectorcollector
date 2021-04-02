@@ -13,12 +13,19 @@ COLOURS = (
     ('8', 'Violet'),
 )
 
+class Common_Feature(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('common-feature-detail', kwargs={'pk': self.id} )
+
 class Collector(models.Model):
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     capacity = models.IntegerField()
-    
+    common_feature = models.ManyToManyField(Common_Feature)
     def __str__(self):
         return self.name
     

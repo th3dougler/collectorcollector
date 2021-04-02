@@ -18,6 +18,8 @@
             <a href="{% url 'collector-home' %}" class="brand-logo center"><i class="material-icons large" >dashboard</i>Collector Collector</a>
             <ul class="right hide-on-small-and-down">
               <li class="{% if active ==  'about' %}active{%endif%}"><a href="{% url 'collector-about' %}">About</a></li>
+              <li class="{% if active ==  'add-feature' %}active{%endif%}"><a href="{% url 'common-feature-create' %}">Add Common Feature</a></li>
+              <li class="{% if active ==  'list-feature' %}active{%endif%}"><a href="{% url 'common-feature-list' %}">View All Common Features</a></li>
               <li class="{% if active ==  'index' %}active{%endif%}"><a href="{% url 'collector-list' %}">Index</a></li>
               <li class="{% if active ==  'create' %}active{%endif%}"><a href="{% url 'collector-create' %}">Create</a></li>
               
